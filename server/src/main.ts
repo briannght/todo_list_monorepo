@@ -13,7 +13,6 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
-console.log(process.env);
 const pool = new Pool({
   host: process.env.POSTGRES_HOST,
   user: process.env.POSTGRES_USER,
