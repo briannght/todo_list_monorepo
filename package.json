@@ -3,12 +3,14 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "web": "dotenv -e ${PWD}/env/.env.development -- nx run web:serve",
-    "server": "dotenv -e ${PWD}/env/.env.development -- nx run server:serve",
+    "web": "dotenv -e ${PWD}/env/.env.development -- nx serve web",
+    "server": "dotenv -e ${PWD}/env/.env.development -- nx serve server",
     "db:setup": "dotenv -e ${PWD}/env/.env.development -- sh -c 'tsc server/src/cli.ts && node server/src/cli.js setup'",
     "db:drop": "dotenv -e ${PWD}/env/.env.development -- sh -c 'tsc server/src/cli.ts && node server/src/cli.js drop'",
     "db:mock": "dotenv -e ${PWD}/env/.env.development -- sh -c 'tsc server/src/cli.ts && node server/src/cli.js mock'",
-    "test:server": "dotenv -e ${PWD}/env/.env.development -- sh -c 'pnpm run db:drop && pnpm run db:mock && nx test server'"
+    "test:server": "dotenv -e ${PWD}/env/.env.development -- sh -c 'pnpm run db:drop && pnpm run db:mock && nx test server'",
+    "build:web": "dotenv -e ${PWD}/env/.env.development -- nx build web",
+    "build:server": "dotenv -e ${PWD}/env/.env.development -- nx build server"
   },
   "private": true,
   "dependencies": {
