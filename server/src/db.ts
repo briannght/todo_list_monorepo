@@ -38,7 +38,7 @@ if (args[0] === 'setup') {
             await client.query(SQL.createTable);
         }
         for (const duty of MOCK_DUTIES) {
-            await client.query(SQL.createDuty, [duty.description, duty.assignee]);
+            await client.query(SQL.createDuty, [duty.title, duty.description, duty.assignee, duty.creator, duty.priority,duty.status]);
         }
     })
 } else {

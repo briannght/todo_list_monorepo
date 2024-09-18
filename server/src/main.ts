@@ -37,15 +37,15 @@ app.get('/duties/:id', async (req, res) => {
 });
 
 app.post('/duties', async (req, res) => {
-  const { description, assignee } = req.body;
-  const result = await pool.query(SQL.createDuty, [description, assignee]);
+  const { title, description, assignee, creator, priority, status } = req.body;
+  const result = await pool.query(SQL.createDuty, [title, description, assignee, creator, priority, status]);
   res.status(201).json(result.rows[0]);
 });
 
 app.put('/duties/:id', async (req, res) => {
   const { id } = req.params;
-  const { description, assignee, completed } = req.body;
-  const result = await pool.query(SQL.updateDutyById, [description, assignee, completed, id]);
+  const { title, description, assignee, creator, priority, status } = req.body;
+  const result = await pool.query(SQL.updateDutyById, [title, description, assignee, creator, priority, status, id]);
   res.status(200).json(result.rows[0]);
 });
 
