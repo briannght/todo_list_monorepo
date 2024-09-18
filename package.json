@@ -5,9 +5,10 @@
   "scripts": {
     "web": "dotenv -e ${PWD}/env/.env.development -- nx run web:serve",
     "server": "dotenv -e ${PWD}/env/.env.development -- nx run server:serve",
-    "db:setup": "dotenv -e ${PWD}/env/.env.development -- sh -c 'tsc server/src/db.ts && node server/src/db.js setup'",
-    "db:drop": "dotenv -e ${PWD}/env/.env.development -- sh -c 'tsc server/src/db.ts && node server/src/db.js drop'",
-    "db:mock": "dotenv -e ${PWD}/env/.env.development -- sh -c 'tsc server/src/db.ts && node server/src/db.js mock'"
+    "db:setup": "dotenv -e ${PWD}/env/.env.development -- sh -c 'tsc server/src/cli.ts && node server/src/cli.js setup'",
+    "db:drop": "dotenv -e ${PWD}/env/.env.development -- sh -c 'tsc server/src/cli.ts && node server/src/cli.js drop'",
+    "db:mock": "dotenv -e ${PWD}/env/.env.development -- sh -c 'tsc server/src/cli.ts && node server/src/cli.js mock'",
+    "test:server": "dotenv -e ${PWD}/env/.env.development -- sh -c 'pnpm run db:drop && pnpm run db:mock && nx test server'"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +27,7 @@
     "react-dom": "18.3.1",
     "react-hook-form": "^7.53.0",
     "react-router-dom": "6.11.2",
+    "supertest": "^7.0.0",
     "tailwind-merge": "^2.5.2",
     "tslib": "^2.3.0",
     "yup": "^1.4.0"
