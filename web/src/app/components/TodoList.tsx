@@ -221,7 +221,7 @@ const TodoList: React.FC = () => {
   return (
     <div className="text-gray-800 p-8">
       <h1 className="text-4xl font-bold">Duties Todo List</h1>
-      <div className="flex items-start mt-8 gap-8">
+      <div className="flex flex-col md:flex-row items-start mt-8 gap-8">
         <ul className="w-full">
           {todos.map((todo) => (
             <li
@@ -268,7 +268,14 @@ const TodoList: React.FC = () => {
               </div>
               <p className="text-base border-t border-gray-600 py-4 mb-8">
                 <p className="font-semibold">Description</p>
-                <p>{todo.description}</p>
+                <p>
+                  {todo.description.split('\n').map((line, index) => (
+                    <span key={index}>
+                      {line}
+                      <br />
+                    </span>
+                  ))}
+                </p>
               </p>
               <button
                 type="button"
