@@ -42,5 +42,4 @@ Thumbs.db
 .nx/workspace-data
 
 # custom
-env
 server/src/**/*.js

@@ -31,6 +31,8 @@ Start frontend in development environment
 
 ```
 pnpm run web
+
+# Ready in http://localhost:4200 as default
 ```
 
 Setup PostgreSQL database and import mock data
@@ -50,6 +52,8 @@ Start backend in development environment
 
 ```
 pnpm run server
+
+# Ready in http://localhost:3000 as default
 ```
 
 Backend unit test
